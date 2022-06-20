@@ -12,6 +12,22 @@ light:  #64CEFA
 -Text Color-
 primary: 
 secondary:
+
+-Fonts-
+logo: 
+primary: Anek Latin Light 300
+Secondary: Mukta ExtraLight 200
+
+
+
 */
 
 
+* {
+    padding: 0;
+    margin: 0%;
+
+    font-family: 'Anek Latin', sans-serif;
+    font-weight: bolder;
+    color: white;
+}
