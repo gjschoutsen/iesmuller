@@ -1,4 +1,4 @@
-import { Flex, Text, Image } from '@chakra-ui/react'
+
 import React from 'react'
 import BioImage from '../old-images/Header-bio.jpeg'
 import Features from './Features'
@@ -10,6 +10,7 @@ export default function Bio() {
   return (
     <>
       <Features
+        id={'bio'}
         flexDir={'row'} 
         image={BioImage}
         gradient={'linear(to-b, black, #2384AD)'}

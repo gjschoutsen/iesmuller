@@ -1,8 +1,8 @@
-import { Box, Text, Flex, Button, Link } from '@chakra-ui/react'
-import React, {useRef} from 'react'
+import React from 'react'
+import {Link} from 'react-scroll'
+import { Box, Text, Flex, Button,} from '@chakra-ui/react'
 
 export default function NavBar() {
-  const titleRef = useRef()
 
   return (
     <Box
@@ -21,7 +21,13 @@ export default function NavBar() {
           color='#FFC380'
           fontSize='3xl'
         >
-          Ies Muller
+          <Link
+             to='header'
+              smooth={true}
+              duration={1000}
+          >
+            Ies Muller
+          </Link>
         </Text>
         <Box
         >
@@ -31,11 +37,36 @@ export default function NavBar() {
             gap='20px'
             color='white'
             >
-            <Link onClick={()=>{}}>Bio</Link>
-            <Link>Lessen</Link>
-            <Link>Workshops</Link>
-            <Link>Studio</Link>
-            <Link>Groepen</Link>
+            <Link 
+              to='bio'
+              smooth={true}
+              duration={1000}
+              offset={-20}
+            >Bio</Link>
+            <Link
+              to='lessen'
+              smooth={true}
+              duration={1000}
+              offset={-50}
+            >Lessen</Link>
+            <Link
+             to='workshops'
+              smooth={true}
+              duration={1000}
+              offset={-50}
+            >Workshops</Link>
+            <Link
+              to='studio'
+              smooth={true}
+              duration={1000}
+              offset={-50}
+            >Studio</Link>
+            <Link
+             to='groepen'
+              smooth={true}
+              duration={1000}
+              offset={-50}
+            >Groepen</Link>
             <Button colorScheme='blue'>
               Boek nu!
             </Button>

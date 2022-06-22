@@ -2,6 +2,7 @@ import React from 'react'
 import { Flex, Text, Image } from '@chakra-ui/react'
 
 export default function Features({
+    id,
     image,
     title,
     text,
@@ -11,6 +12,7 @@ export default function Features({
 {
   return (
     <Flex
+      id={id}
       padding='40px'
       direction='column'
       justify='center'
@@ -44,7 +46,6 @@ export default function Features({
         <Flex
           w='50%'
           padding='90px'
-          // border='solid #AD7534'
         >
           <Text
             fontSize='xl'

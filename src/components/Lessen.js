@@ -7,6 +7,7 @@ export default function Lessen() {
   return (
     <>
     <Features
+      id={'lessen'}
       flexDir={'row-reverse'} 
       image={LessonImage}
       gradient={'linear(to-b,#2384AD, #AD7534)'}
