@@ -2,15 +2,15 @@ import React from 'react'
 import { Flex, Text, Image } from '@chakra-ui/react'
 
 export default function Features({
-    id,
-    image,
-    title,
-    text,
-    flexDir,
-    gradient
-})
-{
+  id,
+  image,
+  title,
+  text,
+  flexDir,
+  gradient
+}) {
   return (
+
     <Flex
       id={id}
       padding='40px'
@@ -24,17 +24,17 @@ export default function Features({
         <Text
           fontSize='4xl'
         >
-        {title}
+          {title}
         </Text>
       </Flex>
 
-      <Flex 
+      <Flex
         align='center'
         justify='center'
         direction={flexDir}
         padding='80px 0px 80px 0px'
       >
-        <Flex 
+        <Flex
           justify='center'
         >
           <Image

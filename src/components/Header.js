@@ -1,7 +1,7 @@
 import { Box, Image, Button, Flex } from '@chakra-ui/react'
 import React from 'react'
 import Cover from "../old-images/Ies Muller Wooden Flute.jpeg"
-import Modal from './Modal'
+
 
 export default function Header() {
   return (
@@ -14,19 +14,18 @@ export default function Header() {
       align='center'
       gap='3rem'
     >
-    <Modal />
-      <Image 
-        src={Cover} 
+      <Image
+        src={Cover}
         alt='Ies Muller'
         objectFit='fill'
       ></Image>
       <Box
-          pos='absolute'
+        pos='absolute'
       >
       </Box>
-        <Button
-          colorScheme='blue'
-        >Boek nu!</Button>
+      <Button
+        colorScheme='blue'
+      >Boek nu!</Button>
     </Flex>
   )
 }

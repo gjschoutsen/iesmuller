@@ -1,17 +1,25 @@
 
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import BioImage from '../old-images/Header-bio.jpeg'
 import Features from './Features'
 
 export default function Bio() {
+  const [textColor, setTextColor] = useState('')
+  let elementRef = useRef()
 
-
+  useEffect(() => {
+    console.log(elementRef.current.offsetTop);
+  }, [])
 
   return (
     <>
+      <div
+        ref={elementRef}
+      ></div>
       <Features
         id={'bio'}
-        flexDir={'row'} 
+        textColor={textColor}
+        flexDir={'row'}
         image={BioImage}
         gradient={'linear(to-b, black, #2384AD)'}
         title={'-Bio-'}
@@ -23,7 +31,7 @@ export default function Bio() {
                 Terwijl Ierse en Bretonse muziek het hart bleven vormen van zijn stijl en repertoire, 
                 kwamen er in de loop der tijd veel invloeden bij. 
                 Hij werkte binnen verschillende projecten met muzikanten uit allerlei disciplines, waaronder klassieke muziek, 
-                jazz en wereldmuziek. Ook door deze invloeden kwam zijn huidige stijl tot stand.`}               
+                jazz en wereldmuziek. Ook door deze invloeden kwam zijn huidige stijl tot stand.`}
       />
     </>
   )

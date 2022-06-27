@@ -1,78 +1,115 @@
 import React from 'react'
-import {Link} from 'react-scroll'
-import { Box, Text, Flex, Button,} from '@chakra-ui/react'
+import '../css/NavBar.css'
+import { Link } from 'react-scroll'
+import { Text, Flex, Button, } from '@chakra-ui/react'
 
 export default function NavBar() {
 
   return (
-    <Box
+    <Flex
       w='100%'
       padding='20px 20px'
       fontFamily='Mukta, sans-serif'
       fontSize='2xl'
       bgGradient='linear(to-b, black, rgba(255,0,0,0) )'
       pos='fixed'
+      justify='space-between'
+      align='center'
     >
-      <Flex
-       justify='space-between'
-       align='center'
+      <Link
+        to='header'
+        smooth={true}
+        duration={1000}
       >
         <Text
           color='#FFC380'
           fontSize='3xl'
+          cursor='pointer'
         >
-          <Link
-             to='header'
-              smooth={true}
-              duration={1000}
-          >
-            Ies Muller
-          </Link>
+          Ies Muller
         </Text>
-        <Box
+      </Link>
+      <Flex
+        justify='space-evenly'
+        align='center'
+        gap='20px'
+        color='white'
+      >
+        <Link
+          activeClass='active'
+          to='bio'
+          smooth={true}
+          duration={1000}
+          offset={-20}
+          isDynamic
         >
-          <Flex
-            justify='space-evenly'
-            align='center'
-            gap='20px'
-            color='white'
-            >
-            <Link 
-              to='bio'
-              smooth={true}
-              duration={1000}
-              offset={-20}
-            >Bio</Link>
-            <Link
-              to='lessen'
-              smooth={true}
-              duration={1000}
-              offset={-50}
-            >Lessen</Link>
-            <Link
-             to='workshops'
-              smooth={true}
-              duration={1000}
-              offset={-50}
-            >Workshops</Link>
-            <Link
-              to='studio'
-              smooth={true}
-              duration={1000}
-              offset={-50}
-            >Studio</Link>
-            <Link
-             to='groepen'
-              smooth={true}
-              duration={1000}
-              offset={-50}
-            >Groepen</Link>
-            <Button colorScheme='blue'>
-              Boek nu!
-            </Button>
-          </Flex>
-        </Box>
+          <Text
+            _hover={{ color: "#FFC380" }}
+            cursor='pointer'
+          >
+            Bio
+          </Text>
+        </Link>
+        <Link
+          to='lessen'
+          smooth={true}
+          duration={1000}
+          offset={-50}
+          isDynamic
+        >
+          <Text
+            _hover={{ color: "#FFC380" }}
+            cursor='pointer'
+          >
+            Lesson
+          </Text>
+        </Link>
+        <Link
+          to='workshops'
+          smooth={true}
+          duration={1000}
+          offset={-50}
+          isDynamic
+        >
+          <Text
+            _hover={{ color: "#FFC380" }}
+            cursor='pointer'
+          >
+            Workshops
+          </Text>
+        </Link>
+        <Link
+          to='studio'
+          smooth={true}
+          duration={1000}
+          offset={-50}
+          isDynamic
+        >
+          <Text
+            _hover={{ color: "#FFC380" }}
+            cursor='pointer'
+          >
+            Studio
+          </Text>
+        </Link>
+        <Link
+          to='groepen'
+          smooth={true}
+          duration={1000}
+          offset={-50}
+          isDynamic
+        >
+          <Text
+            _hover={{ color: "#FFC380" }}
+            cursor='pointer'
+          >
+            Groepen
+          </Text>
+        </Link>
+        <Button colorScheme='blue'>
+          Boek nu!
+        </Button>
       </Flex>
-    </Box>
+    </Flex>
   )
 }
