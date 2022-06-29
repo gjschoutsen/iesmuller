@@ -6,7 +6,6 @@ export default function Contact() {
     <>
       <Features
         flexDir={'row-reverse'}
-        // image={LessonImage}
         gradient={'linear(to-b,#2384AD, black)'}
         title={'-Contact-'}
         text={`Ik geef fluitles op dwarsfluit, tin-whistle en low-whistle voor alle niveaus, zowel individueel als aan groepen.
