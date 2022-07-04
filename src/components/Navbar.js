@@ -61,7 +61,7 @@ export default function NavBar() {
             _hover={{ color: "#FFC380" }}
             cursor='pointer'
           >
-            Lesson
+            Lessen
           </Text>
         </Link>
         <Link
