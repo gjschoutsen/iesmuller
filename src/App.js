@@ -1,5 +1,6 @@
 // import { Box } from '@chakra-ui/react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import Axios from 'axios'
 import NavBar from './components/NavBar';
 import Header from './components/Header';
 import Bio from './components/Bio';
@@ -10,17 +11,35 @@ import Groepen from './components/Groepen';
 import Contact from './components/Contact';
 import './css/App.css'
 
+
 function App() {
+  const API = "http://localhost:1337/api"
+
+  const [texts, setTexts] = useState([])
+
+  const fetchText = () => {
+    Axios.get(`${API}/texts`)
+      .then((texts) => {
+        setTexts(texts.data.data[0].attributes)
+      })
+      .catch((err) => { console.log("Error getting texts from API"); })
+  }
+
+  useEffect(() => {
+    fetchText()
+  }, [])
+
+  console.log(texts.Bio);
 
   return (
     <>
       <NavBar />
       <Header />
-      <Bio />
-      <Lessen />
-      <Workshops />
-      <Studio />
-      <Groepen />
+      <Bio bioText={texts.Bio} />
+      <Lessen lessenText={texts.Lessen} />
+      <Workshops workshopsText={texts.Workshops} />
+      <Studio studioText={texts.Studio} />
+      <Groepen groepenText={texts.Groepen} />
       <Contact />
     </>
   );

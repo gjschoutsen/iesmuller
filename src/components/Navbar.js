@@ -5,6 +5,34 @@ import { Text, Flex, Button, } from '@chakra-ui/react'
 
 export default function NavBar() {
 
+  const linksArr = [
+    {
+      id: 1,
+      to: 'bio',
+      title: 'Bio'
+    },
+    {
+      id: 2,
+      to: 'lessen',
+      title: 'Lessen'
+    },
+    {
+      id: 3,
+      to: 'workshops',
+      title: 'Workshops'
+    },
+    {
+      id: 4,
+      to: 'studio',
+      title: 'Studio'
+    },
+    {
+      id: 5,
+      to: 'groepen',
+      title: 'Groepen'
+    },
+  ]
+
   return (
     <Flex
       w='100%'
@@ -35,77 +63,25 @@ export default function NavBar() {
         gap='20px'
         color='white'
       >
-        <Link
-          activeClass='active'
-          to='bio'
-          smooth={true}
-          duration={1000}
-          offset={-20}
-          isDynamic
-        >
-          <Text
-            _hover={{ color: "#FFC380" }}
-            cursor='pointer'
-          >
-            Bio
-          </Text>
-        </Link>
-        <Link
-          to='lessen'
-          smooth={true}
-          duration={1000}
-          offset={-50}
-          isDynamic
-        >
-          <Text
-            _hover={{ color: "#FFC380" }}
-            cursor='pointer'
-          >
-            Lessen
-          </Text>
-        </Link>
-        <Link
-          to='workshops'
-          smooth={true}
-          duration={1000}
-          offset={-50}
-          isDynamic
-        >
-          <Text
-            _hover={{ color: "#FFC380" }}
-            cursor='pointer'
-          >
-            Workshops
-          </Text>
-        </Link>
-        <Link
-          to='studio'
-          smooth={true}
-          duration={1000}
-          offset={-50}
-          isDynamic
-        >
-          <Text
-            _hover={{ color: "#FFC380" }}
-            cursor='pointer'
-          >
-            Studio
-          </Text>
-        </Link>
-        <Link
-          to='groepen'
-          smooth={true}
-          duration={1000}
-          offset={-50}
-          isDynamic
-        >
-          <Text
-            _hover={{ color: "#FFC380" }}
-            cursor='pointer'
-          >
-            Groepen
-          </Text>
-        </Link>
+        {linksArr.map((link) => {
+          return (
+            <Link key={link.id}
+              // activeClass='active'
+              to={link.to}
+              smooth={true}
+              duration={1000}
+              offset={-50}
+              isDynamic
+            >
+              <Text
+                _hover={{ color: "#FFC380" }}
+                cursor='pointer'
+              >
+                {link.title}
+              </Text>
+            </Link>
+          )
+        })}
         <Button colorScheme='blue'>
           Boek nu!
         </Button>
