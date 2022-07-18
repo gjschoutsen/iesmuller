@@ -29,8 +29,6 @@ function App() {
     fetchText()
   }, [])
 
-  console.log(texts.Bio);
-
   return (
     <>
       <NavBar />
