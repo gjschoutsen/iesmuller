@@ -1,6 +1,6 @@
-// import { Box } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import Axios from 'axios'
+import './css/App.css'
 import NavBar from './components/NavBar';
 import Header from './components/Header';
 import Bio from './components/Bio';
@@ -9,7 +9,7 @@ import Workshops from './components/Workshops';
 import Studio from './components/Studio';
 import Groepen from './components/Groepen';
 import Contact from './components/Contact';
-import './css/App.css'
+import Calendar from './components/Calendar';
 
 
 function App() {
@@ -38,6 +38,7 @@ function App() {
       <Workshops workshopsText={texts.Workshops} />
       <Studio studioText={texts.Studio} />
       <Groepen groepenText={texts.Groepen} />
+      <Calendar />
       <Contact />
     </>
   );

@@ -1,7 +1,7 @@
 import React from 'react'
 import '../css/NavBar.css'
 import { Link } from 'react-scroll'
-import { Text, Flex, Button, } from '@chakra-ui/react'
+import { Text, Flex, Button, Select } from '@chakra-ui/react'
 
 export default function NavBar() {
 
@@ -30,6 +30,11 @@ export default function NavBar() {
       id: 5,
       to: 'groepen',
       title: 'Groepen'
+    },
+    {
+      id: 6,
+      to: 'agenda',
+      title: 'Agenda'
     },
   ]
 
@@ -82,6 +87,11 @@ export default function NavBar() {
             </Link>
           )
         })}
+
+        <Select placeholder='NL'>
+          <option value='option1'>EN</option>
+        </Select>
+
         <Button colorScheme='blue'>
           Boek nu!
         </Button>

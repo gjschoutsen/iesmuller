@@ -6,7 +6,6 @@ export default function Workshops({ workshopsText }) {
       <Features
         id={'workshops'}
         flexDir={'row-reverse'}
-        // image={LessonImage}
         gradient={'linear(to-b, #AD7534,#2384AD)'}
         title={'-Workshops-'}
         text={workshopsText}

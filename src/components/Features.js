@@ -7,7 +7,8 @@ export default function Features({
   title,
   text,
   flexDir,
-  gradient
+  gradient,
+  link
 }) {
   return (
 
