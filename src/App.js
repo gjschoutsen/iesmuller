@@ -9,7 +9,7 @@ import Workshops from './components/Workshops';
 import Studio from './components/Studio';
 import Groepen from './components/Groepen';
 import Contact from './components/Contact';
-import Calendar from './components/Calendar';
+import Agenda from './components/Agenda';
 
 
 function App() {
@@ -38,7 +38,7 @@ function App() {
       <Workshops workshopsText={texts.Workshops} />
       <Studio studioText={texts.Studio} />
       <Groepen groepenText={texts.Groepen} />
-      <Calendar />
+      <Agenda />
       <Contact />
     </>
   );
