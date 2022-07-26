@@ -35,17 +35,25 @@ export default function Calendar() {
                     <TableCaption>Concert agenda</TableCaption>
                     <Thead>
                         <Tr>
-                            <Th>Datum</Th>
-                            <Th>Groep</Th>
-                            <Th>Locatie</Th>
-                            <Th>Link</Th>
+                            <Th
+                                color='white'
+                            >Datum</Th>
+                            <Th
+                                color='white'
+                            >Groep</Th>
+                            <Th
+                                color='white'
+                            >Locatie</Th>
+                            <Th
+                                color='white'
+                            >Link</Th>
                         </Tr>
                     </Thead>
                     <Tbody>
                         {texts.length > 0 && texts.map((e) => {
                             return (
                                 <Tr key={e.id}>
-                                    <Td>{e.attributes.datum}</Td>
+                                    <Td>{new Date(e.attributes.datum).toLocaleDateString()}</Td>
                                     <Td>{e.attributes.Groep}</Td>
                                     <Td>{e.attributes.Locatie}</Td>
                                     <Td>
@@ -72,13 +80,11 @@ export default function Calendar() {
         fetchText()
     }, [])
 
-    console.log(texts)
-
     return (
         <>
             <Flex
                 id='agenda'
-                padding='40px'
+                minHeight='800px'
                 direction='column'
                 justify='center'
                 align={'center'}
@@ -86,6 +92,7 @@ export default function Calendar() {
             >
                 <Text
                     fontSize='4xl'
+                    paddingBottom='40px'
                 >
                     -Agenda-
                 </Text>

@@ -19,7 +19,7 @@ export default function Bio({ bioText }) {
       <Features
         id={'bio'}
         textColor={textColor}
-        flexDir={'row'}
+        flexDir={['column-reverse', 'column-reverse', 'row', 'row']}
         image={BioImage}
         gradient={'linear(to-b, black, #2384AD)'}
         title={'-Bio-'}

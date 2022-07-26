@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <Flex
       id='header'
-      minH='1000px'
+      // minH='1000px'
       bg='black'
       pt='84px'
       direction='column'
@@ -15,6 +15,8 @@ export default function Header() {
       gap='3rem'
     >
       <Image
+        // width={'100%'}
+        // height={'70rem'}
         src={Cover}
         alt='Ies Muller'
         objectFit='fill'
@@ -23,9 +25,13 @@ export default function Header() {
         pos='absolute'
       >
       </Box>
-      <Button
+      {/* <Button
+        className='Heeeeerrrrreeeeeee'
+        // pos='absolute'
+        // top='10%'
+        size='lg'
         colorScheme='blue'
-      >Boek nu!</Button>
+      >Boek nu!</Button> */}
     </Flex>
   )
 }

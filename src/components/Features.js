@@ -14,10 +14,12 @@ export default function Features({
 
     <Flex
       id={id}
-      padding='40px'
+      padding='0 20px 0 20px'
       direction='column'
       justify='center'
       bgGradient={gradient}
+      minH='800px'
+      gap='4rem'
     >
       <Flex
         justify='center'
@@ -33,20 +35,22 @@ export default function Features({
         align='center'
         justify='center'
         direction={flexDir}
-        padding='80px 0px 80px 0px'
+        gap='2rem'
+        padding='0'
       >
         <Flex
           justify='center'
         >
           <Image
+            maxW='70%'
             borderRadius='full'
             boxShadow='dark-lg'
             src={image}
           ></Image>
         </Flex>
         <Flex
-          w='50%'
-          padding='90px'
+          w={['100%', '100%', '50%', '50%']}
+        // padding={['0px', '0px', '90px', '90px']}
         >
           <Text
             fontSize='xl'

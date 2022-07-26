@@ -7,9 +7,7 @@ export default function Studio({ studioText }) {
     <>
       <Flex
         id='studio'
-        padding='6rem'
         direction='column'
-        justify='center'
         align='center'
         gap='3rem'
         bgGradient='linear(to-b, #2384AD, #AD7534)'
@@ -29,8 +27,8 @@ export default function Studio({ studioText }) {
         <iframe
           title='parade'
           src="https://player.vimeo.com/video/180756965?h=2193231f23"
-          width="640"
-          height="360"
+          width={['320', '320', "640", '640']}
+          height="360px"
           frameBorder="0"
           allow="autoplay; fullscreen; picture-in-picture"
           allowFullscreen

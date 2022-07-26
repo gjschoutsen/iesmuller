@@ -7,7 +7,7 @@ export default function Lessen({ lessenText }) {
     <>
       <Features
         id={'lessen'}
-        flexDir={'row-reverse'}
+        flexDir={['column-reverse', 'column-reverse', 'row-reverse', 'row-reverse']}
         image={LessonImage}
         gradient={'linear(to-b,#2384AD, #AD7534)'}
         title={'-Lessen-'}
