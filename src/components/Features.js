@@ -18,7 +18,7 @@ export default function Features({
       direction='column'
       justify='center'
       bgGradient={gradient}
-      minH='800px'
+      minH='1000px'
       gap='4rem'
     >
       <Flex

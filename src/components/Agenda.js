@@ -57,7 +57,9 @@ export default function Calendar() {
                                     <Td>{e.attributes.Groep}</Td>
                                     <Td>{e.attributes.Locatie}</Td>
                                     <Td>
-                                        <Link href={e.attributes.Link} isExternal>Meer info</Link>
+                                        <Link
+                                            textDecoration='underline'
+                                            href={e.attributes.Link} isExternal>Meer info</Link>
                                     </Td>
                                 </Tr>
                             )

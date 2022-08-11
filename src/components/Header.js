@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <Flex
       id='header'
-      // minH='1000px'
+      // minH='2000px'
       bg='black'
       pt='84px'
       direction='column'

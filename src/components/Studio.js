@@ -8,6 +8,7 @@ export default function Studio({ studioText }) {
       <Flex
         id='studio'
         direction='column'
+        padding='0 20px 0 20px'
         align='center'
         gap='3rem'
         bgGradient='linear(to-b, #2384AD, #AD7534)'

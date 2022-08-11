@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import Form from './Form'
 import '../css/NavBar.css'
 import { Link } from 'react-scroll'
+import { HamburgerIcon } from '@chakra-ui/icons'
 import {
   Text,
   Flex,
@@ -11,9 +12,12 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
+  IconButton,
 } from '@chakra-ui/react'
 
-export default function NavBar() {
+export default function NavBar({
+  sectionOffsets
+}) {
   const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {
     const position = window.pageYOffset;
@@ -27,6 +31,13 @@ export default function NavBar() {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  console.log("scroll Pos", scrollPosition);
+  console.log("Bio Section Pos", sectionOffsets.bio);
+  console.log("Lesson Section Pos", sectionOffsets.lessen);
+  console.log("navBar height", sectionOffsets.navBarHeight);
+
+  const navBarHeight = 85
 
   const linksArr = [
     {
@@ -60,22 +71,22 @@ export default function NavBar() {
       title: 'Agenda'
     },
   ]
-  if (scrollPosition >= 1154 && scrollPosition < 2248) {
+  if (scrollPosition + navBarHeight >= sectionOffsets.bio && scrollPosition + navBarHeight < sectionOffsets.lessen) {
     linksArr[0].color = '#FFC380'
   }
-  else if (scrollPosition >= 2248 && scrollPosition < 3082) {
+  else if (scrollPosition + navBarHeight >= sectionOffsets.lessen && scrollPosition + navBarHeight < sectionOffsets.workshops) {
     linksArr[1].color = '#FFC380'
   }
-  else if (scrollPosition >= 3082 && scrollPosition < 3766) {
+  else if (scrollPosition + navBarHeight >= sectionOffsets.workshops && scrollPosition < sectionOffsets.studio) {
     linksArr[2].color = '#FFC380'
   }
-  else if (scrollPosition >= 3766 && scrollPosition < 4708) {
+  else if (scrollPosition + navBarHeight >= sectionOffsets.studio && scrollPosition + navBarHeight < sectionOffsets.groepen) {
     linksArr[3].color = '#FFC380'
   }
-  else if (scrollPosition >= 4708 && scrollPosition < 5297) {
+  else if (scrollPosition + navBarHeight >= sectionOffsets.groepen && scrollPosition + navBarHeight < sectionOffsets.agenda) {
     linksArr[4].color = '#FFC380'
   }
-  else if (scrollPosition >= 5298 && scrollPosition <= 5795) {
+  else if (scrollPosition + navBarHeight >= sectionOffsets.agenda && scrollPosition + navBarHeight <= sectionOffsets.agendaEnd) {
     linksArr[5].color = '#FFC380'
   } else {
     linksArr[0].color = "white"
@@ -95,24 +106,71 @@ export default function NavBar() {
     }
   }, [form])
 
+  function mobileMenu(linksArr) {
+    return (
+      <Menu
+      >
+        <MenuButton
+          as={IconButton}
+          icon={<HamburgerIcon />}
+          variant='outline'
+          _hover={{ bg: 'none' }}
+          _expanded={{ bgGradient: 'linear(to-t, #2C5282, #2384AD)', border: 'none', hover: 'none' }}
+          display={['block', 'block', 'none', 'none']}
+        >
+          Menu
+        </MenuButton>
+        <MenuList
+          display={{ lg: 'none' }}
+          bgGradient='linear(to-b, #2C5282, #2384AD)'
+
+        >
+          {linksArr.map((link) => {
+            return (
+              <Link key={link.id}
+                to={link.to}
+                smooth={true}
+                duration={1000}
+                offset={-70}
+                isDynamic
+              >
+                <MenuItem
+                  cursor='pointer'
+                  bg='none'
+                  _focus={{ bg: 'none' }}
+                >
+                  {link.title}
+                </MenuItem>
+              </Link>
+            )
+          })}
+        </MenuList>
+      </Menu>
+
+    )
+
+
+  }
+
   return (
     <>
       <Flex
         w='100%'
-        padding='20px 20px'
+        padding='20px'
         fontFamily='Mukta, sans-serif'
         fontSize='2xl'
         bgGradient='linear(to-b, black, rgba(255,0,0,0) )'
         backdropFilter='auto'
         backdropBlur='6px'
         pos='fixed'
-        justify='space-between'
+        justify='space-around'
         align='center'
       >
         <Link
           to='header'
           smooth={true}
           duration={1000}
+          display={['none', 'none', 'none', 'block']}
         >
           <Text
             display={['none', 'none', 'none', 'block']}
@@ -123,17 +181,8 @@ export default function NavBar() {
             Ies Muller
           </Text>
         </Link>
-        <Menu>
-          <MenuButton
-            as={Button}
-            variant='outline'
-            display={['block', 'block', 'none', 'none']}
-          >
-            Menu
-          </MenuButton>
-          {/* MOBILE MENU */}
-          {newFunction(linksArr)}
-        </Menu>
+        {/* MOBILE MENU */}
+        {mobileMenu(linksArr)}
         {/* BROWSER MENU */}
         <Flex
           justify='space-evenly'
@@ -149,6 +198,7 @@ export default function NavBar() {
                 duration={1000}
                 offset={-50}
                 isDynamic
+
               >
                 <Text
                   display={['none', 'none', 'block', 'block']}
@@ -186,28 +236,5 @@ export default function NavBar() {
     </>
   )
 }
-function newFunction(linksArr) {
-  return <MenuList
-    display={{ lg: 'none' }}
-  >
-    {linksArr.map((link) => {
-      return (
-        <Link key={link.id}
-          to={link.to}
-          smooth={true}
-          duration={1000}
-          offset={-50}
-          isDynamic
-        >
-          <MenuItem
-            _hover={{ color: "#FFC380" }}
-            cursor='pointer'
-          >
-            {link.title}
-          </MenuItem>
-        </Link>
-      )
-    })}
-  </MenuList>
-}
+
 

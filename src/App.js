@@ -10,25 +10,21 @@ import Studio from './components/Studio';
 import Groepen from './components/Groepen';
 import Contact from './components/Contact';
 import Agenda from './components/Agenda';
-import { Box } from '@chakra-ui/react'
 
 
 function App() {
-  const API = "http://localhost:1337/api"
 
-  const APII = process.env.REACT_APP_STRAPI_API_URL
-
-  console.log(APII);
-
+  const API = process.env.REACT_APP_STRAPI_API_URL
   const [texts, setTexts] = useState([]);
 
   const [sectionOffsets, setSectionOffsets] = useState({
     bio: 0,
-    lessons: 0,
-    // workshops: 0,
-    // studio: 0,
-    // groups: 0,
-    // agenda: 0,
+    lessen: 0,
+    workshops: 0,
+    studio: 0,
+    groepen: 0,
+    agenda: 0,
+    agendaEnd: 0,
   });
 
   const fetchText = () => {
@@ -36,7 +32,7 @@ function App() {
       .then((texts) => {
         setTexts(texts.data.data[0].attributes)
       })
-      .catch((err) => { console.log("Error getting texts from API"); })
+      .catch((err) => { console.log("Error getting texts from API", err); })
   }
 
   useEffect(() => {
@@ -45,27 +41,47 @@ function App() {
 
   const bioRef = useRef();
   const lessonsRef = useRef();
+  const workshopsRef = useRef();
+  const studioRef = useRef();
+  const groepenRef = useRef();
+  const agendaRef = useRef();
+  const agendaEndRef = useRef();
 
-  // This function calculate X and Y
+  // This function calculates Y position of section
   const getPosition = () => {
-    if (bioRef.current && lessonsRef.current) {
-      // console.log('bioRef position is', bioRef.current.offsetTop);
-      // console.log('lessonsRef position is', lessonsRef.current.offsetTop);
+    if (bioRef.current &&
+      lessonsRef.current &&
+      workshopsRef.current &&
+      studioRef.current &&
+      groepenRef.current &&
+      agendaRef.current &&
+      agendaEndRef.current
+    ) {
       const bioY = bioRef.current.offsetTop;
       const lessonsY = lessonsRef.current.offsetTop;
+      const workshopsY = workshopsRef.current.offsetTop;
+      const studioY = studioRef.current.offsetTop;
+      const groepenY = groepenRef.current.offsetTop;
+      const agendaY = agendaRef.current.offsetTop;
+      const agendaYEnd = agendaEndRef.current.offsetTop;
       setSectionOffsets({
         bio: bioY,
-        lessons: lessonsY,
+        lessen: lessonsY,
+        workshops: workshopsY,
+        studio: studioY,
+        groepen: groepenY,
+        agenda: agendaY,
+        agendaEnd: agendaYEnd,
       });
     }
   };
 
-  // Get the position of the red box in the beginning
+  // Get the position of the section in the beginning
   useEffect(() => {
     getPosition();
   }, []);
 
-  // Re-calculate X and Y of the red box when the window is resized by the user
+  // Re-calculate Y of the section when the window is resized by the user
   useEffect(() => {
     window.addEventListener("resize", getPosition);
   }, []);
@@ -74,29 +90,34 @@ function App() {
 
   return (
     <>
-      <NavBar />
+      <NavBar sectionOffsets={sectionOffsets} />
       <Header />
-      <Box
-        color="black"
-      >
-        bio offsetTop is: {sectionOffsets.bio}
-        lessons offsetTop is: {sectionOffsets.lessons}
-      </Box>
-      <div ref={bioRef}>
+      <section ref={bioRef}>
         <Bio bioText={texts.Bio} />
-      </div>
-
-      <div ref={lessonsRef}>
+      </section>
+      <section ref={lessonsRef}>
         <Lessen lessenText={texts.Lessen} />
-      </div>
+      </section>
+      <section ref={workshopsRef}>
+        <Workshops workshopsText={texts.Workshops} />
+      </section>
+      <section ref={studioRef}>
+        <Studio studioText={texts.Studio} />
+      </section>
+      <section ref={groepenRef}>
+        <Groepen groepenText={texts.Groepen} />
+      </section>
+      <section ref={agendaRef}>
+        <Agenda />
+      </section>
+      <section ref={agendaEndRef}>
 
-      <Workshops workshopsText={texts.Workshops} />
-      <Studio studioText={texts.Studio} />
-      <Groepen groepenText={texts.Groepen} />
-      <Agenda />
+      </section>
       <Contact />
     </>
   );
 }
+
+
 
 export default App;
