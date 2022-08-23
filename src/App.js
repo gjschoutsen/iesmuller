@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
-import Axios from 'axios'
-import './css/App.css'
+import Axios from 'axios';
+import './css/App.css';
 import NavBar from './components/NavBar';
 import Header from './components/Header';
 import Bio from './components/Bio';
@@ -11,10 +11,8 @@ import Groepen from './components/Groepen';
 import Contact from './components/Contact';
 import Agenda from './components/Agenda';
 
-
 function App() {
-
-  const API = process.env.REACT_APP_STRAPI_API_URL
+  const API = process.env.REACT_APP_STRAPI_API_URL;
   const [texts, setTexts] = useState([]);
 
   const [sectionOffsets, setSectionOffsets] = useState({
@@ -29,14 +27,16 @@ function App() {
 
   const fetchText = () => {
     Axios.get(`${API}/texts`)
-      .then((texts) => {
-        setTexts(texts.data.data[0].attributes)
+      .then(texts => {
+        setTexts(texts.data.data[0].attributes);
       })
-      .catch((err) => { console.log("Error getting texts from API", err); })
-  }
-
+      .catch(err => {
+        console.log('Error getting texts from API', err);
+      });
+  };
+  console.log(texts.workshoptitel1);
   useEffect(() => {
-    fetchText()
+    fetchText();
   }, []);
 
   const bioRef = useRef();
@@ -49,7 +49,8 @@ function App() {
 
   // This function calculates Y position of section
   const getPosition = () => {
-    if (bioRef.current &&
+    if (
+      bioRef.current &&
       lessonsRef.current &&
       workshopsRef.current &&
       studioRef.current &&
@@ -83,41 +84,48 @@ function App() {
 
   // Re-calculate Y of the section when the window is resized by the user
   useEffect(() => {
-    window.addEventListener("resize", getPosition);
+    window.addEventListener('resize', getPosition);
   }, []);
-
-
-
   return (
     <>
       <NavBar sectionOffsets={sectionOffsets} />
       <Header />
       <section ref={bioRef}>
-        <Bio bioText={texts.Bio} />
+        <Bio bioTextP1={texts.biop1} bioTextP2={texts.biop2} />
       </section>
       <section ref={lessonsRef}>
-        <Lessen lessenText={texts.Lessen} />
+        <Lessen
+          lessenTextP1={texts.lessenp1}
+          lessenTextP2={texts.lessenp2}
+          locatie={texts.locatie}
+          losseLes={texts.losseles}
+          vijfLessen={texts.vijflessen}
+          tienLessen={texts.tienlessen}
+        />
       </section>
       <section ref={workshopsRef}>
-        <Workshops workshopsText={texts.Workshops} />
+        <Workshops
+          wsTitel1={texts.workshoptitel1}
+          wsTitel2={texts.workshoptitel2}
+          wsTitel3={texts.workshoptitel3}
+          wsText1={texts.workshoptext1}
+          wsText2={texts.workshoptext2}
+          wsText3={texts.workshoptext3}
+        />
       </section>
       <section ref={studioRef}>
-        <Studio studioText={texts.Studio} />
+        <Studio studioTextP1={texts.studiop1} studioTextP2={texts.studiop2} />
       </section>
       <section ref={groepenRef}>
-        <Groepen groepenText={texts.Groepen} />
+        <Groepen />
       </section>
       <section ref={agendaRef}>
         <Agenda />
       </section>
-      <section ref={agendaEndRef}>
-
-      </section>
+      <section ref={agendaEndRef}></section>
       <Contact />
     </>
   );
 }
-
-
 
 export default App;

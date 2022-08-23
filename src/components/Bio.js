@@ -1,30 +1,30 @@
+import { Box } from '@chakra-ui/react';
+import React, { useEffect, useRef, useState } from 'react';
+import BioImage from '../old-images/Header-bio.jpeg';
+import Features from './Features';
 
-import React, { useEffect, useRef, useState } from 'react'
-import BioImage from '../old-images/Header-bio.jpeg'
-import Features from './Features'
-
-export default function Bio({ bioText }) {
-  const [textColor, setTextColor] = useState('')
-  let elementRef = useRef()
+export default function Bio({ bioTextP1, bioTextP2 }) {
+  const [textColor] = useState('');
+  let elementRef = useRef();
 
   useEffect(() => {
     // console.log(elementRef.current.offsetTop);
-  }, [])
+  }, []);
 
   return (
     <>
-      <div
-        ref={elementRef}
-      ></div>
+      <Box bg="black" id={'bio'} paddingTop="30px">
+        <div ref={elementRef}></div>
+      </Box>
       <Features
-        id={'bio'}
         textColor={textColor}
         flexDir={['column-reverse', 'column-reverse', 'row', 'row']}
         image={BioImage}
         gradient={'linear(to-b, black, #2384AD)'}
         title={'-Bio-'}
-        text={bioText}
+        textp1={bioTextP1}
+        textp2={bioTextP2}
       />
     </>
-  )
+  );
 }

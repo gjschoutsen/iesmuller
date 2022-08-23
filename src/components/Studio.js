@@ -1,41 +1,36 @@
-import React from 'react'
-import Features from './Features'
-import { Flex, Text } from '@chakra-ui/react'
+import React from 'react';
+import { Flex, Text, AspectRatio, Box } from '@chakra-ui/react';
 
 export default function Studio({ studioText }) {
   return (
-    <>
+    <Box bgGradient="linear(to-b, #2384AD, #AD7534)" minH="800px">
       <Flex
-        id='studio'
-        direction='column'
-        padding='0 20px 0 20px'
-        align='center'
-        gap='3rem'
-        bgGradient='linear(to-b, #2384AD, #AD7534)'
+        id="studio"
+        direction="column"
+        padding="30px"
+        align="center"
+        gap="3rem"
+        w="100%"
       >
-        <Text
-          fontSize='4xl'
-        >
-          -Studio-
-        </Text>
-        <Text
-          fontSize='xl'
-          maxWidth='40rem'
-        >
+        <Text fontSize="4xl">-Studio-</Text>
+        <Text fontSize="xl" maxWidth="40rem">
           {studioText}
         </Text>
-
-        <iframe
-          title='parade'
-          src="https://player.vimeo.com/video/180756965?h=2193231f23"
-          width={['320', '320', "640", '640']}
-          height="360px"
-          frameBorder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowFullscreen
-        >
-        </iframe>
       </Flex>
-    </>
-  )
+      <Box padding="30px">
+        <AspectRatio ratio={16 / 9}>
+          <iframe
+            title="parade"
+            src="https://player.vimeo.com/video/180756965?h=2193231f23"
+            // width={['1080px', '1080px', '1080px'÷, '1080px']}
+            width="1920"
+            height="1080"
+            // frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </AspectRatio>
+      </Box>
+    </Box>
+  );
 }

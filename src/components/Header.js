@@ -1,30 +1,26 @@
-import { Box, Image, Button, Flex } from '@chakra-ui/react'
-import React from 'react'
-import Cover from "../old-images/Ies Muller Wooden Flute.jpeg"
-
+import { Box, Image, Button, Flex } from '@chakra-ui/react';
+import React from 'react';
+import Cover from '../old-images/Ies Muller Wooden Flute.jpeg';
 
 export default function Header() {
   return (
     <Flex
-      id='header'
-      // minH='2000px'
-      bg='black'
-      pt='84px'
-      direction='column'
-      align='center'
-      gap='3rem'
+      id="header"
+      minH="800px"
+      bg="black"
+      pt="84px"
+      direction="column"
+      align="center"
+      gap="3rem"
     >
       <Image
         // width={'100%'}
         // height={'70rem'}
         src={Cover}
-        alt='Ies Muller'
-        objectFit='fill'
+        alt="Ies Muller"
+        objectFit="fill"
       ></Image>
-      <Box
-        pos='absolute'
-      >
-      </Box>
+      <Box pos="absolute"></Box>
       {/* <Button
         className='Heeeeerrrrreeeeeee'
         // pos='absolute'
@@ -33,5 +29,5 @@ export default function Header() {
         colorScheme='blue'
       >Boek nu!</Button> */}
     </Flex>
-  )
+  );
 }

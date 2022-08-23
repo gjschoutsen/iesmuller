@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react'
-import Form from './Form'
-import '../css/NavBar.css'
-import { Link } from 'react-scroll'
-import { HamburgerIcon } from '@chakra-ui/icons'
+import { useState, useEffect } from 'react';
+import Form from './Form';
+import '../css/NavBar.css';
+import { Link } from 'react-scroll';
+import { HamburgerIcon } from '@chakra-ui/icons';
 import {
   Text,
   Flex,
@@ -13,11 +13,9 @@ import {
   MenuList,
   MenuItem,
   IconButton,
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
 
-export default function NavBar({
-  sectionOffsets
-}) {
+export default function NavBar({ sectionOffsets }) {
   const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {
     const position = window.pageYOffset;
@@ -32,12 +30,7 @@ export default function NavBar({
     };
   }, []);
 
-  console.log("scroll Pos", scrollPosition);
-  console.log("Bio Section Pos", sectionOffsets.bio);
-  console.log("Lesson Section Pos", sectionOffsets.lessen);
-  console.log("navBar height", sectionOffsets.navBarHeight);
-
-  const navBarHeight = 85
+  const navBarHeight = 85;
 
   const linksArr = [
     {
@@ -48,135 +41,144 @@ export default function NavBar({
     {
       id: 2,
       to: 'lessen',
-      title: 'Lessen'
+      title: 'Lessen',
     },
     {
       id: 3,
       to: 'workshops',
-      title: 'Workshops'
+      title: 'Workshops',
     },
     {
       id: 4,
       to: 'studio',
-      title: 'Studio'
+      title: 'Studio',
     },
     {
       id: 5,
       to: 'groepen',
-      title: 'Groepen'
+      title: 'Groepen',
     },
     {
       id: 6,
       to: 'agenda',
-      title: 'Agenda'
+      title: 'Agenda',
     },
-  ]
-  if (scrollPosition + navBarHeight >= sectionOffsets.bio && scrollPosition + navBarHeight < sectionOffsets.lessen) {
-    linksArr[0].color = '#FFC380'
-  }
-  else if (scrollPosition + navBarHeight >= sectionOffsets.lessen && scrollPosition + navBarHeight < sectionOffsets.workshops) {
-    linksArr[1].color = '#FFC380'
-  }
-  else if (scrollPosition + navBarHeight >= sectionOffsets.workshops && scrollPosition < sectionOffsets.studio) {
-    linksArr[2].color = '#FFC380'
-  }
-  else if (scrollPosition + navBarHeight >= sectionOffsets.studio && scrollPosition + navBarHeight < sectionOffsets.groepen) {
-    linksArr[3].color = '#FFC380'
-  }
-  else if (scrollPosition + navBarHeight >= sectionOffsets.groepen && scrollPosition + navBarHeight < sectionOffsets.agenda) {
-    linksArr[4].color = '#FFC380'
-  }
-  else if (scrollPosition + navBarHeight >= sectionOffsets.agenda && scrollPosition + navBarHeight <= sectionOffsets.agendaEnd) {
-    linksArr[5].color = '#FFC380'
+  ];
+  if (
+    scrollPosition + navBarHeight >= sectionOffsets.bio &&
+    scrollPosition + navBarHeight < sectionOffsets.lessen
+  ) {
+    linksArr[0].color = '#FFC380';
+  } else if (
+    scrollPosition + navBarHeight >= sectionOffsets.lessen &&
+    scrollPosition + navBarHeight < sectionOffsets.workshops
+  ) {
+    linksArr[1].color = '#FFC380';
+  } else if (
+    scrollPosition + navBarHeight >= sectionOffsets.workshops &&
+    scrollPosition < sectionOffsets.studio
+  ) {
+    linksArr[2].color = '#FFC380';
+  } else if (
+    scrollPosition + navBarHeight >= sectionOffsets.studio &&
+    scrollPosition + navBarHeight < sectionOffsets.groepen
+  ) {
+    linksArr[3].color = '#FFC380';
+  } else if (
+    scrollPosition + navBarHeight >= sectionOffsets.groepen &&
+    scrollPosition + navBarHeight < sectionOffsets.agenda
+  ) {
+    linksArr[4].color = '#FFC380';
+  } else if (
+    scrollPosition + navBarHeight >= sectionOffsets.agenda &&
+    scrollPosition + navBarHeight <= sectionOffsets.agendaEnd
+  ) {
+    linksArr[5].color = '#FFC380';
   } else {
-    linksArr[0].color = "white"
+    linksArr[0].color = 'white';
   }
 
-  const [form, setForm] = useState(false)
+  const [form, setForm] = useState(false);
 
-  const toggleForm = (toggle) => {
-    setForm(toggle)
-  }
+  const toggleForm = toggle => {
+    setForm(toggle);
+  };
 
   useEffect(() => {
     if (form) {
-      document.body.style.overflow = 'hidden'
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'scroll'
+      document.body.style.overflow = 'scroll';
     }
-  }, [form])
+  }, [form]);
 
   function mobileMenu(linksArr) {
     return (
-      <Menu
-      >
+      <Menu>
         <MenuButton
           as={IconButton}
           icon={<HamburgerIcon />}
-          variant='outline'
+          variant="outline"
           _hover={{ bg: 'none' }}
-          _expanded={{ bgGradient: 'linear(to-t, #2C5282, #2384AD)', border: 'none', hover: 'none' }}
+          _expanded={{
+            bgGradient: 'linear(to-t, #2C5282, #2384AD)',
+            border: 'none',
+            hover: 'none',
+          }}
           display={['block', 'block', 'none', 'none']}
         >
           Menu
         </MenuButton>
         <MenuList
           display={{ lg: 'none' }}
-          bgGradient='linear(to-b, #2C5282, #2384AD)'
-
+          bgGradient="linear(to-b, #2C5282, #2384AD)"
         >
-          {linksArr.map((link) => {
+          {linksArr.map(link => {
             return (
-              <Link key={link.id}
+              <Link
+                key={link.id}
                 to={link.to}
                 smooth={true}
                 duration={1000}
-                offset={-70}
+                offset={-60}
                 isDynamic
               >
-                <MenuItem
-                  cursor='pointer'
-                  bg='none'
-                  _focus={{ bg: 'none' }}
-                >
+                <MenuItem cursor="pointer" bg="none" _focus={{ bg: 'none' }}>
                   {link.title}
                 </MenuItem>
               </Link>
-            )
+            );
           })}
         </MenuList>
       </Menu>
-
-    )
-
-
+    );
   }
 
   return (
     <>
       <Flex
-        w='100%'
-        padding='20px'
-        fontFamily='Mukta, sans-serif'
-        fontSize='2xl'
-        bgGradient='linear(to-b, black, rgba(255,0,0,0) )'
-        backdropFilter='auto'
-        backdropBlur='6px'
-        pos='fixed'
-        justify='space-around'
-        align='center'
+        w="100%"
+        padding="20px"
+        fontFamily="Mukta, sans-serif"
+        fontSize="2xl"
+        bgGradient="linear(to-b, black, rgba(255,0,0,0) )"
+        backdropFilter="auto"
+        backdropBlur="6px"
+        pos="fixed"
+        justify="space-around"
+        align="center"
       >
         <Link
-          to='header'
+          to="header"
           smooth={true}
           duration={1000}
           display={['none', 'none', 'none', 'block']}
         >
           <Text
             display={['none', 'none', 'none', 'block']}
-            color='#FFC380'
-            fontSize='3xl'
-            cursor='pointer'
+            color="#FFC380"
+            fontSize="3xl"
+            cursor="pointer"
           >
             Ies Muller
           </Text>
@@ -184,49 +186,44 @@ export default function NavBar({
         {/* MOBILE MENU */}
         {mobileMenu(linksArr)}
         {/* BROWSER MENU */}
-        <Flex
-          justify='space-evenly'
-          align='center'
-          gap='20px'
-          color='white'
-        >
-          {linksArr.map((link) => {
+        <Flex justify="space-evenly" align="center" gap="20px" color="white">
+          {linksArr.map(link => {
             return (
-              <Link key={link.id}
+              <Link
+                key={link.id}
                 to={link.to}
                 smooth={true}
                 duration={1000}
                 offset={-50}
                 isDynamic
-
               >
                 <Text
                   display={['none', 'none', 'block', 'block']}
-                  _hover={{ color: "#FFC380" }}
-                  cursor='pointer'
+                  _hover={{ color: '#FFC380' }}
+                  cursor="pointer"
                   color={link.color}
                 >
                   {link.title}
                 </Text>
               </Link>
-            )
+            );
           })}
           <Select
-            _focus={{ outline: "none", boxShadow: "none" }}
-            width={"70px"}
-            placeholder='🇳🇱'
-            border='none'
-
+            _focus={{ outline: 'none', boxShadow: 'none' }}
+            width={'70px'}
+            placeholder="🇳🇱"
+            border="none"
           >
-            <option
-              value='option1'
-              border='none'
-            >🇬🇧</option>
+            <option value="option1" border="none">
+              🇬🇧
+            </option>
           </Select>
 
           <Button
-            colorScheme='blue'
-            onClick={() => { toggleForm(true) }}
+            colorScheme="blue"
+            onClick={() => {
+              toggleForm(true);
+            }}
           >
             Boek nu!
           </Button>
@@ -234,7 +231,5 @@ export default function NavBar({
       </Flex>
       {form && <Form toggleForm={toggleForm} />}
     </>
-  )
+  );
 }
-
-
