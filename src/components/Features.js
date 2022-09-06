@@ -16,7 +16,7 @@ export default function Features({
       padding="0 40px 0 40px"
       direction="column"
       justify="center"
-      bgGradient={gradient}
+      bg="black"
       // minH÷="800px"
       gap="4rem"
     >

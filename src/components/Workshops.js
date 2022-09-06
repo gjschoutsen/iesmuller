@@ -14,9 +14,9 @@ export default function Workshops({
       <Flex
         id="workshops"
         direction="column"
-        textAlign="center"
+        // textAlign="center"
         alignItems="center"
-        bgGradient={'linear(to-b, #AD7534,#2384AD)'}
+        bg="black"
         minH="800px"
         padding="30px"
         paddingBottom="200px"
@@ -28,21 +28,21 @@ export default function Workshops({
         <Text as="h2" fontSize="3xl">
           {wsTitel1}
         </Text>
-        <Text fontSize="xl" maxW="60%">
+        <Text fontSize="xl" maxW="40rem">
           {wsText1}
         </Text>
 
         <Text as="h2" fontSize="3xl">
           {wsTitel2}
         </Text>
-        <Text fontSize="xl" maxW="60vw" paddingBottom="100px">
+        <Text fontSize="xl" maxW="40rem" paddingBottom="50px">
           {wsText2}
         </Text>
 
         <Text as="h2" fontSize="3xl">
           {wsTitel3}
         </Text>
-        <Text fontSize="xl" maxW="60%">
+        <Text fontSize="xl" maxW="40rem">
           {wsText3}
         </Text>
       </Flex>

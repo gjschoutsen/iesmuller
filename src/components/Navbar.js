@@ -121,7 +121,7 @@ export default function NavBar({ sectionOffsets }) {
           variant="outline"
           _hover={{ bg: 'none' }}
           _expanded={{
-            bgGradient: 'linear(to-t, #2C5282, #2384AD)',
+            bg: 'black',
             border: 'none',
             hover: 'none',
           }}
@@ -129,10 +129,7 @@ export default function NavBar({ sectionOffsets }) {
         >
           Menu
         </MenuButton>
-        <MenuList
-          display={{ lg: 'none' }}
-          bgGradient="linear(to-b, #2C5282, #2384AD)"
-        >
+        <MenuList display={{ lg: 'none' }} bg="black">
           {linksArr.map(link => {
             return (
               <Link
@@ -225,7 +222,7 @@ export default function NavBar({ sectionOffsets }) {
               toggleForm(true);
             }}
           >
-            Boek nu!
+            Contact
           </Button>
         </Flex>
       </Flex>

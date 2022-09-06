@@ -93,6 +93,12 @@ function App() {
       <section ref={bioRef}>
         <Bio bioTextP1={texts.biop1} bioTextP2={texts.biop2} />
       </section>
+      <section ref={groepenRef}>
+        <Groepen />
+      </section>
+      <section ref={agendaRef}>
+        <Agenda />
+      </section>
       <section ref={lessonsRef}>
         <Lessen
           lessenTextP1={texts.lessenp1}
@@ -116,12 +122,7 @@ function App() {
       <section ref={studioRef}>
         <Studio studioTextP1={texts.studiop1} studioTextP2={texts.studiop2} />
       </section>
-      <section ref={groepenRef}>
-        <Groepen />
-      </section>
-      <section ref={agendaRef}>
-        <Agenda />
-      </section>
+
       <section ref={agendaEndRef}></section>
       <Contact />
     </>

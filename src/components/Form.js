@@ -1,151 +1,136 @@
-import { Button, FormControl, FormLabel, Input, Flex, Text, Textarea, FormHelperText, FormErrorMessage, IconButton } from '@chakra-ui/react'
-import { useState } from 'react'
-
+import {
+  Button,
+  FormControl,
+  FormLabel,
+  Input,
+  Flex,
+  Text,
+  Textarea,
+  FormHelperText,
+  FormErrorMessage,
+  IconButton,
+} from '@chakra-ui/react';
+import { useState } from 'react';
 
 export default function Form({ toggleForm }) {
-    const [naam, setNaam] = useState('')
-    const [email, setEmail] = useState('')
-    const [bericht, setBericht] = useState('')
+  const [naam, setNaam] = useState('');
+  const [email, setEmail] = useState('');
+  const [bericht, setBericht] = useState('');
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
+  const handleSubmit = e => {
+    e.preventDefault();
 
-        const message = { naam, email, bericht }
-        console.log(message);
+    const message = { naam, email, bericht };
+    console.log(message);
 
-        toggleForm(false)
+    toggleForm(false);
+  };
 
-    }
+  const isErrorNaam = naam === '';
+  const isErrorEmail = email === '';
+  const isErrorBericht = bericht === '';
 
-    const isErrorNaam = naam === ''
-    const isErrorEmail = email === ''
-    const isErrorBericht = bericht === ''
-
-    return (
-        <>
-            <Flex
-                width='100%'
-                minH='100%'
-                backdropFilter='auto'
-                backdropBlur='8px'
-                pos='absolute'
-                color='gray.700'
-                onClick={() => { toggleForm(false) }}
-            >
-                <IconButton></IconButton>
-            </Flex>
-            <Flex
-                align='center'
-                justify='center'
-                direction='column'
-            >
-                <Flex
-                    position='fixed'
-                    top='25%'
-                    zIndex='overlay'
-                    direction='column'
-                    bg='#BEE3F8'
-                    padding='4rem'
-                    borderRadius='2xl'
-                    boxShadow='dark-lg'
-                >
-                    <Text
-                        fontSize='5xl'
-                        color='black'
-                        borderColor
-                    >
-                        Contact
-                    </Text>
-                    <FormControl
-                        isInvalid={isErrorNaam}
-                        isRequired
-                        mt={6}
-                    >
-                        <FormLabel
-                            fontSize='1.5rem'
-                            color='black'
-                        >Naam:</FormLabel>
-                        <Input
-                            value={naam}
-                            onChange={(e) => { setNaam(e.target.value) }}
-                            borderColor='black'
-                            color='black'
-                            bg='white'
-                            _hover={{ borderColor: '#2B6CB0' }}
-                        />
-                        {isErrorNaam &&
-                            <FormErrorMessage
-                                fontSize='lg'
-
-                            >
-                                Vul uw naam in.
-                            </FormErrorMessage>
-                        }
-                    </FormControl>
-                    <FormControl
-                        isInvalid={isErrorEmail}
-                        isRequired
-                        mt={6}>
-                        <FormLabel
-                            fontSize='1.5rem'
-                            color='black'
-                        >Email:</FormLabel>
-                        <Input
-                            value={email}
-                            onChange={(e) => { setEmail(e.target.value) }}
-                            borderColor='black'
-                            color='black'
-                            bg='white'
-                            type='email'
-                            _hover={{ borderColor: '#2B6CB0' }}
-                        />
-                        {isErrorEmail &&
-                            <FormErrorMessage
-                                fontSize='lg'
-
-                            >
-                                Vul hier uw emailadres in.
-                            </FormErrorMessage>
-                        }
-                    </FormControl>
-                    <FormControl
-                        isInvalid={isErrorBericht}
-                        isRequired
-                        mt={6}>
-                        <FormLabel
-                            fontSize='1.5rem'
-                            color='black'
-                        >Bericht:</FormLabel>
-                        <Textarea
-                            value={bericht}
-                            onChange={(e) => { setBericht(e.target.value) }}
-                            borderColor='black'
-                            color='black'
-                            bg='white'
-                            _hover={{ borderColor: '#2B6CB0' }}
-                        />
-                        {isErrorBericht &&
-                            <FormErrorMessage
-                                fontSize='lg'
-
-                            >
-                                Schrijf hier uw bericht.
-                            </FormErrorMessage>
-                        }
-                    </FormControl>
-                    <Button
-                        type='submit'
-                        mt={6}
-                        color='black'
-                        variant='outline'
-                        borderColor='black'
-                        _hover={{ bg: '#6ab7d8' }}
-                        onClick={handleSubmit}
-                    >
-                        Submit
-                    </Button>
-                </Flex>
-            </Flex>
-        </>
-    )
+  return (
+    <>
+      <Flex
+        width="100%"
+        minH="100%"
+        backdropFilter="auto"
+        backdropBlur="8px"
+        pos="absolute"
+        color="gray.700"
+        onClick={() => {
+          toggleForm(false);
+        }}
+      >
+        {/* <IconButton></IconButton> */}
+      </Flex>
+      <Flex align="center" justify="center" direction="column">
+        <Flex
+          position="fixed"
+          top="10%"
+          zIndex="overlay"
+          direction="column"
+          bg="#BEE3F8"
+          padding="4rem"
+          borderRadius="2xl"
+          boxShadow="dark-lg"
+        >
+          <Text fontSize="5xl" color="black" borderColor>
+            Contact
+          </Text>
+          <FormControl isInvalid={isErrorNaam} isRequired mt={6}>
+            <FormLabel fontSize="1.5rem" color="black">
+              Naam:
+            </FormLabel>
+            <Input
+              value={naam}
+              onChange={e => {
+                setNaam(e.target.value);
+              }}
+              borderColor="black"
+              color="black"
+              bg="white"
+              _hover={{ borderColor: '#2B6CB0' }}
+            />
+            {isErrorNaam && (
+              <FormErrorMessage fontSize="lg">Vul uw naam in.</FormErrorMessage>
+            )}
+          </FormControl>
+          <FormControl isInvalid={isErrorEmail} isRequired mt={6}>
+            <FormLabel fontSize="1.5rem" color="black">
+              Email:
+            </FormLabel>
+            <Input
+              value={email}
+              onChange={e => {
+                setEmail(e.target.value);
+              }}
+              borderColor="black"
+              color="black"
+              bg="white"
+              type="email"
+              _hover={{ borderColor: '#2B6CB0' }}
+            />
+            {isErrorEmail && (
+              <FormErrorMessage fontSize="lg">
+                Vul hier uw emailadres in.
+              </FormErrorMessage>
+            )}
+          </FormControl>
+          <FormControl isInvalid={isErrorBericht} isRequired mt={6}>
+            <FormLabel fontSize="1.5rem" color="black">
+              Bericht:
+            </FormLabel>
+            <Textarea
+              value={bericht}
+              onChange={e => {
+                setBericht(e.target.value);
+              }}
+              borderColor="black"
+              color="black"
+              bg="white"
+              _hover={{ borderColor: '#2B6CB0' }}
+            />
+            {isErrorBericht && (
+              <FormErrorMessage fontSize="lg">
+                Schrijf hier uw bericht.
+              </FormErrorMessage>
+            )}
+          </FormControl>
+          <Button
+            type="submit"
+            mt={6}
+            color="black"
+            variant="outline"
+            borderColor="black"
+            _hover={{ bg: '#6ab7d8' }}
+            onClick={handleSubmit}
+          >
+            Submit
+          </Button>
+        </Flex>
+      </Flex>
+    </>
+  );
 }

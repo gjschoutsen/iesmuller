@@ -26,10 +26,11 @@ export default function Groepen() {
   return (
     <Flex
       id="groepen"
-      bgGradient="linear(to-b, #AD7534, #2384AD)"
+      bg="black"
       justify="center"
       display="column"
       padding="30px"
+      paddingBottom="100px"
       minH="800px"
     >
       <Flex justify="center">
