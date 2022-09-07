@@ -33,7 +33,7 @@ function App() {
         console.log('Error getting texts from API', err);
       });
   };
-  console.log(texts.workshoptitel1);
+
   useEffect(() => {
     fetchText();
   }, []);

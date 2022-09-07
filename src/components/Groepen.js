@@ -24,8 +24,6 @@ export default function Groepen() {
     fetchGroepenData();
   }, []);
 
-  console.log(groepenData);
-
   return (
     <Flex
       id="groepen"

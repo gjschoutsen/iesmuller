@@ -10,34 +10,33 @@ import {
 } from '@chakra-ui/react';
 import { useState } from 'react';
 
+//code for netlify form
+const encode = data => {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+};
+
 export default function Form({ toggleForm }) {
   const [naam, setNaam] = useState('');
   const [email, setEmail] = useState('');
   const [bericht, setBericht] = useState('');
 
-  //code for netlify form
-  const encode = data => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-      .join('&');
-  };
-
   const handleSubmit = e => {
-    e.preventDefault();
-
+    toggleForm(false);
+    const message = { naam, email, bericht };
     //code for netlify form
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', ...this.state }),
+      body: encode({ 'form-name': 'contact', ...message }),
     })
       .then(() => alert('Success!'))
       .catch(error => alert(error));
 
-    const message = { naam, email, bericht };
-    console.log(message);
+    e.preventDefault();
 
-    toggleForm(false);
+    console.log(message);
   };
 
   const isErrorNaam = naam === '';
