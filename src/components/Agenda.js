@@ -17,7 +17,7 @@ import {
 } from '@chakra-ui/react';
 
 export default function Calendar() {
-  const API = 'http://localhost:1337';
+  const API = process.env.REACT_APP_STRAPI_API_URL;
   const [texts, setTexts] = useState([]);
 
   const fetchText = () => {
