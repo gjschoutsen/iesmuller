@@ -6,6 +6,7 @@ import Axios from 'axios';
 export default function Groepen() {
   // const APIHOST = process.env.REACT_APP_STRAPI_HOST_URL;
   const API = process.env.REACT_APP_STRAPI_API_URL;
+  const APIBASE = process.env.REACT_APP_STRAPI_HOST_URL;
   const [groepenData, setGroepenData] = useState([]);
 
   const fetchGroepenData = () => {
@@ -22,6 +23,8 @@ export default function Groepen() {
   useEffect(() => {
     fetchGroepenData();
   }, []);
+
+  console.log(groepenData);
 
   return (
     <Flex
@@ -43,7 +46,7 @@ export default function Groepen() {
             return (
               <div key={index}>
                 <Card
-                  image={`http://localhost:1337${groepData.image.data.attributes.url}`}
+                  image={`${APIBASE}${groepData.image.data.attributes.url}`}
                   title={groepData.titel}
                   textp1={groepData.textp1}
                   textp2={groepData.textp2}
