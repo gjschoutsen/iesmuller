@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Axios from 'axios';
 import './css/App.css';
-import NavBar from './components/NavBar';
+import NavBar from './components/Navbar';
 import Header from './components/Header';
 import Bio from './components/Bio';
 import Lessen from './components/Lessen';
