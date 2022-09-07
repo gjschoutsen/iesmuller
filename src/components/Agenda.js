@@ -21,7 +21,7 @@ export default function Calendar() {
   const [texts, setTexts] = useState([]);
 
   const fetchText = () => {
-    Axios.get(`${API}/api/agendas`)
+    Axios.get(`${API}/agendas`)
       .then(texts => {
         setTexts(texts.data.data);
       })
