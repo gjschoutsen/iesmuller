@@ -4,7 +4,7 @@ import { Flex, Text } from '@chakra-ui/react';
 import Axios from 'axios';
 
 export default function Groepen() {
-  const APIHOST = process.env.REACT_APP_STRAPI_HOST_URL;
+  // const APIHOST = process.env.REACT_APP_STRAPI_HOST_URL;
   const API = process.env.REACT_APP_STRAPI_API_URL;
   const [groepenData, setGroepenData] = useState([]);
 

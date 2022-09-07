@@ -6,9 +6,7 @@ import {
   Flex,
   Text,
   Textarea,
-  FormHelperText,
   FormErrorMessage,
-  IconButton,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 

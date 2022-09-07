@@ -7,7 +7,6 @@ import {
   Stack,
   useColorModeValue,
   Image,
-  Textarea,
 } from '@chakra-ui/react';
 
 export default function Card({ image, title, textp1, textp2, artists }) {

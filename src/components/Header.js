@@ -1,4 +1,4 @@
-import { Box, Image, Button, Flex } from '@chakra-ui/react';
+import { Box, Image, Flex } from '@chakra-ui/react';
 import React from 'react';
 import Cover from '../old-images/Ies Muller Wooden Flute.jpeg';
 

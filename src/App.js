@@ -8,7 +8,6 @@ import Lessen from './components/Lessen';
 import Workshops from './components/Workshops';
 import Studio from './components/Studio';
 import Groepen from './components/Groepen';
-import Contact from './components/Contact';
 import Agenda from './components/Agenda';
 
 function App() {
@@ -124,7 +123,6 @@ function App() {
       </section>
 
       <section ref={agendaEndRef}></section>
-      <Contact />
     </>
   );
 }
