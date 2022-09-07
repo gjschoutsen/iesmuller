@@ -18,30 +18,30 @@ const encode = data => {
 };
 
 export default function Form({ toggleForm }) {
-  const [naam, setNaam] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [bericht, setBericht] = useState('');
+  const [message, setMessage] = useState('');
 
   const handleSubmit = e => {
     toggleForm(false);
-    const message = { naam, email, bericht };
+    const messageInfo = { name, email, message };
     //code for netlify form
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', ...message }),
+      body: encode({ 'form-name': 'contact', ...messageInfo }),
     })
       .then(() => alert('Success!'))
       .catch(error => alert(error));
 
     e.preventDefault();
 
-    console.log(message);
+    console.log(messageInfo);
   };
 
-  const isErrorNaam = naam === '';
+  const isErrorNaam = name === '';
   const isErrorEmail = email === '';
-  const isErrorBericht = bericht === '';
+  const isErrorBericht = message === '';
 
   return (
     <>
@@ -77,9 +77,9 @@ export default function Form({ toggleForm }) {
               Naam:
             </FormLabel>
             <Input
-              value={naam}
+              value={name}
               onChange={e => {
-                setNaam(e.target.value);
+                setName(e.target.value);
               }}
               borderColor="black"
               color="black"
@@ -116,9 +116,9 @@ export default function Form({ toggleForm }) {
               Bericht:
             </FormLabel>
             <Textarea
-              value={bericht}
+              value={message}
               onChange={e => {
-                setBericht(e.target.value);
+                setMessage(e.target.value);
               }}
               borderColor="black"
               color="black"
