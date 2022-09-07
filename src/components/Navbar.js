@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import Form from './Form';
-import '../css/NavBar.css';
+import '../css/NavBar';
 import { Link } from 'react-scroll';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import {
