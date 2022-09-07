@@ -40,28 +40,28 @@ export default function NavBar({ sectionOffsets }) {
     },
     {
       id: 2,
-      to: 'lessen',
-      title: 'Lessen',
-    },
-    {
-      id: 3,
-      to: 'workshops',
-      title: 'Workshops',
-    },
-    {
-      id: 4,
-      to: 'studio',
-      title: 'Studio',
-    },
-    {
-      id: 5,
       to: 'groepen',
       title: 'Groepen',
     },
     {
-      id: 6,
+      id: 3,
       to: 'agenda',
       title: 'Agenda',
+    },
+    {
+      id: 4,
+      to: 'lessen',
+      title: 'Lessen',
+    },
+    {
+      id: 5,
+      to: 'workshops',
+      title: 'Workshops',
+    },
+    {
+      id: 6,
+      to: 'studio',
+      title: 'Studio',
     },
   ];
   if (

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Features from './Features';
 import Form from './Form';
-import LessonImage from '../old-images/header-lessen.jpeg';
+import LessonImage from '../oldImages/header-lessen.jpeg';
 import { Flex, Text, Box, Button } from '@chakra-ui/react';
 
 export default function Lessen({
@@ -47,14 +47,14 @@ export default function Lessen({
           textp1={lessenTextP1}
           textp2={lessenTextP2}
         />
-        <Flex padding="40px" display="column">
+        <Flex padding="40px" display="column" textAlign="center">
           <Text fontSize="xl" paddingBottom="20px">
             {locatie}
           </Text>
           <Text fontSize="3xl" paddingBottom="10px">
             Tarieven:
           </Text>
-          <Flex gap="40px" paddingBottom="50px">
+          <Flex gap="40px" paddingBottom="50px" justify="center">
             <Box>
               <Text fontSize="xl">Losse les:</Text>
               <Text fontSize="xl">Vijf lessen:</Text>

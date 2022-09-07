@@ -57,7 +57,14 @@ export default function Form({ toggleForm }) {
           <Text fontSize="5xl" color="black" borderColor>
             Contact
           </Text>
-          <FormControl isInvalid={isErrorNaam} isRequired mt={6}>
+          <FormControl
+            as="form"
+            name="contact"
+            netlify
+            isInvalid={isErrorNaam}
+            isRequired
+            mt={6}
+          >
             <FormLabel fontSize="1.5rem" color="black">
               Naam:
             </FormLabel>

@@ -17,8 +17,8 @@ export default function Features({
       direction="column"
       justify="center"
       bg="black"
-      // minH÷="800px"
       gap="4rem"
+      align="center"
     >
       <Flex justify="center">
         <Text fontSize="4xl">{title}</Text>
@@ -28,8 +28,9 @@ export default function Features({
         align="center"
         justify="space-between"
         direction={flexDir}
-        gap="2rem"
+        gap={['2.5rem', '2.5rem', '0rem', '0rem']}
         padding="0"
+        maxW="1000px"
       >
         <Flex justify="center">
           <Image

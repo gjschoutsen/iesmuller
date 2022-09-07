@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react';
 import React, { useEffect, useRef, useState } from 'react';
-import BioImage from '../old-images/Header-bio.jpeg';
+import BioImage from '../oldImages/Header-bio.jpeg';
 import Features from './Features';
 
 export default function Bio({ bioTextP1, bioTextP2 }) {
