@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import Axios from 'axios';
 import './css/App.css';
+import Form from './components/Form';
 import NavBar from './components/Navbar';
 import Header from './components/Header';
 import Bio from './components/Bio';
@@ -13,6 +14,20 @@ import Agenda from './components/Agenda';
 function App() {
   const API = process.env.REACT_APP_STRAPI_API_URL;
   const [texts, setTexts] = useState([]);
+  const [form, setForm] = useState(false);
+
+  //open close the form with different buttons
+  const toggleForm = toggle => {
+    setForm(toggle);
+  };
+
+  useEffect(() => {
+    if (form) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'scroll';
+    }
+  }, [form]);
 
   const [sectionOffsets, setSectionOffsets] = useState({
     bio: 0,
@@ -85,9 +100,11 @@ function App() {
   useEffect(() => {
     window.addEventListener('resize', getPosition);
   }, []);
+
   return (
     <>
-      <NavBar sectionOffsets={sectionOffsets} />
+      {form && <Form toggleForm={toggleForm} />}
+      <NavBar sectionOffsets={sectionOffsets} toggleForm={toggleForm} />
       <Header />
       <section ref={bioRef}>
         <Bio bioTextP1={texts.biop1} bioTextP2={texts.biop2} />
@@ -100,6 +117,7 @@ function App() {
       </section>
       <section ref={lessonsRef}>
         <Lessen
+          toggleForm={toggleForm}
           lessenTextP1={texts.lessenp1}
           lessenTextP2={texts.lessenp2}
           locatie={texts.locatie}

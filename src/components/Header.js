@@ -1,6 +1,11 @@
-import { Box, Image, Flex } from '@chakra-ui/react';
+import { Box, Image, Flex, IconButton, Link, Text } from '@chakra-ui/react';
 import React from 'react';
 import Cover from '../oldImages/iesmuller-main-header_2500px.jpg';
+import {
+  AiOutlineFacebook,
+  AiOutlineInstagram,
+  AiOutlineMail,
+} from 'react-icons/ai';
 
 export default function Header() {
   return (
@@ -14,20 +19,47 @@ export default function Header() {
       gap="3rem"
     >
       <Image
-        // width={'100%'}
-        // height={'70rem'}
+        position="relative"
         src={Cover}
         alt="Ies Muller"
         objectFit="fill"
+        zIndex={'0'}
       ></Image>
-      <Box pos="absolute"></Box>
-      {/* <Button
-        className='Heeeeerrrrreeeeeee'
-        // pos='absolute'
-        // top='10%'
-        size='lg'
-        colorScheme='blue'
-      >Boek nu!</Button> */}
+      <Flex direction="column" gap="20px" pos="absolute" top="5%" right="20%">
+        <Flex align="center" gap="20px">
+          <IconButton
+            icon={<AiOutlineFacebook />}
+            bg="none"
+            fontSize="50px"
+            // colorScheme="blue"
+          ></IconButton>
+          <Link>
+            <Text fontSize="3xl">Let's meet!</Text>
+          </Link>
+        </Flex>
+        <Flex align="center" gap="20px">
+          <IconButton
+            icon={<AiOutlineInstagram />}
+            bg="none"
+            fontSize="50px"
+            colorScheme="blue"
+          ></IconButton>
+          <Link>
+            <Text fontSize="3xl">Let's meet!</Text>
+          </Link>
+        </Flex>
+        <Flex align="center" gap="20px">
+          <IconButton
+            icon={<AiOutlineMail />}
+            bg="none"
+            fontSize="50px"
+            colorScheme="blue"
+          ></IconButton>
+          <Link>
+            <Text fontSize="3xl">Let's meet!</Text>
+          </Link>
+        </Flex>
+      </Flex>
     </Flex>
   );
 }

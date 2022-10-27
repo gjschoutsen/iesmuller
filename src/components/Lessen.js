@@ -5,6 +5,7 @@ import LessonImage from '../oldImages/header-lessen.jpeg';
 import { Flex, Text, Box, Button } from '@chakra-ui/react';
 
 export default function Lessen({
+  toggleForm,
   lessenTextP1,
   lessenTextP2,
   locatie,
@@ -12,23 +13,8 @@ export default function Lessen({
   vijfLessen,
   tienLessen,
 }) {
-  const [form, setForm] = useState(false);
-
-  const toggleForm = toggle => {
-    setForm(toggle);
-  };
-
-  useEffect(() => {
-    if (form) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'scroll';
-    }
-  }, [form]);
-
   return (
     <>
-      {form && <Form toggleForm={toggleForm} />}
       <Flex
         id={'lessen'}
         minH="800px"

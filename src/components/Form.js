@@ -8,7 +8,10 @@ import {
   Textarea,
   FormErrorMessage,
   Box,
+  IconButton,
+  Portal,
 } from '@chakra-ui/react';
+import { CloseIcon } from '@chakra-ui/icons';
 import { useState } from 'react';
 
 //code for netlify form
@@ -47,8 +50,9 @@ export default function Form({ toggleForm }) {
   return (
     <>
       <Flex
-        position="overlay"
-        width="100%"
+        // position="overlay"
+        zIndex={'2'}
+        w="100%"
         minH="100%"
         backdropFilter="auto"
         backdropBlur="8px"
@@ -73,16 +77,14 @@ export default function Form({ toggleForm }) {
         >
           <Box position="absolute" zIndex="overlay" top="20px" right="20px">
             <Button
-              color="black"
-              variant="outline"
-              borderColor="black"
-              _hover={{ bg: '#6ab7d8' }}
+              as={IconButton}
+              icon={<CloseIcon />}
+              size="xs"
+              colorScheme="blue"
               onClick={() => {
                 toggleForm(false);
               }}
-            >
-              x
-            </Button>
+            ></Button>
           </Box>
           <Text fontSize="5xl" color="black" borderColor>
             Contact

@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import Form from './Form';
-// import '../css/Navbar.css';
 import { Link } from 'react-scroll';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import {
@@ -15,7 +13,7 @@ import {
   IconButton,
 } from '@chakra-ui/react';
 
-export default function NavBar({ sectionOffsets }) {
+export default function NavBar({ sectionOffsets, toggleForm }) {
   const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {
     const position = window.pageYOffset;
@@ -31,6 +29,7 @@ export default function NavBar({ sectionOffsets }) {
   }, []);
 
   const navBarHeight = 85;
+  // 85
 
   const linksArr = [
     {
@@ -98,20 +97,6 @@ export default function NavBar({ sectionOffsets }) {
     linksArr[0].color = 'white';
   }
 
-  const [form, setForm] = useState(false);
-
-  const toggleForm = toggle => {
-    setForm(toggle);
-  };
-
-  useEffect(() => {
-    if (form) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'scroll';
-    }
-  }, [form]);
-
   function mobileMenu(linksArr) {
     return (
       <Menu>
@@ -164,6 +149,7 @@ export default function NavBar({ sectionOffsets }) {
         pos="fixed"
         justify="space-around"
         align="center"
+        zIndex="1"
       >
         <Link
           to="header"
@@ -207,7 +193,7 @@ export default function NavBar({ sectionOffsets }) {
           })}
           <Select
             _focus={{ outline: 'none', boxShadow: 'none' }}
-            width={'70px'}
+            width={'100px'}
             placeholder="🇳🇱"
             border="none"
           >
@@ -226,7 +212,6 @@ export default function NavBar({ sectionOffsets }) {
           </Button>
         </Flex>
       </Flex>
-      {form && <Form toggleForm={toggleForm} />}
     </>
   );
 }

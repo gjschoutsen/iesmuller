@@ -14,6 +14,7 @@ export default function Card({ image, title, textp1, textp2, artists }) {
     <Center py={6}>
       <Box
         maxW={'445px'}
+        minH={'700px'}
         w={'full'}
         bg={useColorModeValue('#4a4a4a', 'gray.900')}
         boxShadow={'2xl'}
@@ -34,7 +35,9 @@ export default function Card({ image, title, textp1, textp2, artists }) {
           </Heading>
           <Text color={'white'}>{textp1}</Text>
           <Text color={'white'}>{textp2}</Text>
-          <Text color={'#b5b5b5'}>{artists}</Text>
+          <Text paddingTop={'10px'} color={'#b5b5b5'}>
+            {artists}
+          </Text>
         </Stack>
       </Box>
     </Center>
