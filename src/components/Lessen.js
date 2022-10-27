@@ -28,6 +28,7 @@ export default function Lessen({
 
   return (
     <>
+      {form && <Form toggleForm={toggleForm} />}
       <Flex
         id={'lessen'}
         minH="800px"
@@ -76,7 +77,6 @@ export default function Lessen({
           </Button>
         </Flex>
       </Flex>
-      {form && <Form toggleForm={toggleForm} />}
     </>
   );
 }

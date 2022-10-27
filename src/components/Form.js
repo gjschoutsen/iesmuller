@@ -7,6 +7,7 @@ import {
   Text,
   Textarea,
   FormErrorMessage,
+  Box,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 
@@ -46,6 +47,7 @@ export default function Form({ toggleForm }) {
   return (
     <>
       <Flex
+        position="overlay"
         width="100%"
         minH="100%"
         backdropFilter="auto"
@@ -61,14 +63,27 @@ export default function Form({ toggleForm }) {
       <Flex align="center" justify="center" direction="column">
         <Flex
           position="fixed"
-          top="10%"
+          top="5%"
           zIndex="overlay"
           direction="column"
           bg="#BEE3F8"
-          padding="4rem"
+          padding="3rem"
           borderRadius="2xl"
           boxShadow="dark-lg"
         >
+          <Box position="absolute" zIndex="overlay" top="20px" right="20px">
+            <Button
+              color="black"
+              variant="outline"
+              borderColor="black"
+              _hover={{ bg: '#6ab7d8' }}
+              onClick={() => {
+                toggleForm(false);
+              }}
+            >
+              x
+            </Button>
+          </Box>
           <Text fontSize="5xl" color="black" borderColor>
             Contact
           </Text>
@@ -87,7 +102,7 @@ export default function Form({ toggleForm }) {
               _hover={{ borderColor: '#2B6CB0' }}
             />
             {isErrorNaam && (
-              <FormErrorMessage fontSize="lg">Vul uw naam in.</FormErrorMessage>
+              <FormErrorMessage fontSize="lg">Vul uw naam in</FormErrorMessage>
             )}
           </FormControl>
           <FormControl isInvalid={isErrorEmail} isRequired mt={6}>
@@ -107,7 +122,7 @@ export default function Form({ toggleForm }) {
             />
             {isErrorEmail && (
               <FormErrorMessage fontSize="lg">
-                Vul hier uw emailadres in.
+                Vul uw emailadres in
               </FormErrorMessage>
             )}
           </FormControl>
@@ -127,7 +142,7 @@ export default function Form({ toggleForm }) {
             />
             {isErrorBericht && (
               <FormErrorMessage fontSize="lg">
-                Schrijf hier uw bericht.
+                Schrijf hier uw bericht
               </FormErrorMessage>
             )}
           </FormControl>

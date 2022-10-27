@@ -66,31 +66,31 @@ export default function NavBar({ sectionOffsets }) {
   ];
   if (
     scrollPosition + navBarHeight >= sectionOffsets.bio &&
-    scrollPosition + navBarHeight < sectionOffsets.lessen
-  ) {
-    linksArr[0].color = '#FFC380';
-  } else if (
-    scrollPosition + navBarHeight >= sectionOffsets.lessen &&
-    scrollPosition + navBarHeight < sectionOffsets.workshops
-  ) {
-    linksArr[1].color = '#FFC380';
-  } else if (
-    scrollPosition + navBarHeight >= sectionOffsets.workshops &&
-    scrollPosition < sectionOffsets.studio
-  ) {
-    linksArr[2].color = '#FFC380';
-  } else if (
-    scrollPosition + navBarHeight >= sectionOffsets.studio &&
     scrollPosition + navBarHeight < sectionOffsets.groepen
   ) {
-    linksArr[3].color = '#FFC380';
+    linksArr[0].color = '#FFC380';
   } else if (
     scrollPosition + navBarHeight >= sectionOffsets.groepen &&
     scrollPosition + navBarHeight < sectionOffsets.agenda
   ) {
-    linksArr[4].color = '#FFC380';
+    linksArr[1].color = '#FFC380';
   } else if (
     scrollPosition + navBarHeight >= sectionOffsets.agenda &&
+    scrollPosition < sectionOffsets.lessen
+  ) {
+    linksArr[2].color = '#FFC380';
+  } else if (
+    scrollPosition + navBarHeight >= sectionOffsets.lessen &&
+    scrollPosition + navBarHeight < sectionOffsets.workshops
+  ) {
+    linksArr[3].color = '#FFC380';
+  } else if (
+    scrollPosition + navBarHeight >= sectionOffsets.workshops &&
+    scrollPosition + navBarHeight < sectionOffsets.studio
+  ) {
+    linksArr[4].color = '#FFC380';
+  } else if (
+    scrollPosition + navBarHeight >= sectionOffsets.studio &&
     scrollPosition + navBarHeight <= sectionOffsets.agendaEnd
   ) {
     linksArr[5].color = '#FFC380';
