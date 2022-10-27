@@ -3,16 +3,18 @@ import Card from './Card';
 import { Flex, Text } from '@chakra-ui/react';
 import Axios from 'axios';
 
-export default function Groepen() {
+export default function Groepen({ lang }) {
   // const APIHOST = process.env.REACT_APP_STRAPI_HOST_URL;
   const API = process.env.REACT_APP_STRAPI_API_URL;
   const BASEURL = process.env.REACT_APP_STRAPI_HOST_URL;
   const [groepenData, setGroepenData] = useState([]);
 
-  const fetchGroepenData = () => {
+  const fetchGroepenDataNl = () => {
     Axios.get(`${API}/groepen?populate=*`)
       .then(groepInfo => {
-        setGroepenData(groepInfo.data.data);
+        if (lang === 'nl') {
+          setGroepenData(groepInfo.data.data);
+        }
       })
       .catch(err => {
         console.log('Error getting groepInfo from API', err);
@@ -20,7 +22,23 @@ export default function Groepen() {
   };
 
   useEffect(() => {
-    fetchGroepenData();
+    fetchGroepenDataNl();
+  }, []);
+
+  const fetchGroepenDataEn = () => {
+    Axios.get(`${API}/groepen-engels?populate=*`)
+      .then(groepInfo => {
+        if (lang === 'en') {
+          setGroepenData(groepInfo.data.data);
+        }
+      })
+      .catch(err => {
+        console.log('Error getting groepInfo from API', err);
+      });
+  };
+
+  useEffect(() => {
+    fetchGroepenDataEn();
   }, []);
 
   return (

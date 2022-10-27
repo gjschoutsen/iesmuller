@@ -7,8 +7,8 @@ export default function Features({
   title,
   textp1,
   textp2,
+  textp3,
   flexDir,
-  gradient,
 }) {
   return (
     <Flex
@@ -44,7 +44,10 @@ export default function Features({
           <Text fontSize="xl" paddingBottom="20px">
             {textp1}
           </Text>
-          <Text fontSize="xl">{textp2}</Text>
+          <Text fontSize="xl" paddingBottom="20px">
+            {textp2}
+          </Text>
+          <Text fontSize="xl">{textp3}</Text>
         </Flex>
       </Flex>
     </Flex>

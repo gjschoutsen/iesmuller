@@ -1,6 +1,4 @@
-import { useState, useEffect } from 'react';
 import Features from './Features';
-import Form from './Form';
 import LessonImage from '../oldImages/header-lessen.jpeg';
 import { Flex, Text, Box, Button } from '@chakra-ui/react';
 

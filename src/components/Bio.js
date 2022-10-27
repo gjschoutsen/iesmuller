@@ -3,13 +3,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import BioImage from '../oldImages/Header-bio.jpeg';
 import Features from './Features';
 
-export default function Bio({ bioTextP1, bioTextP2 }) {
+export default function Bio({ bioTextP1, bioTextP2, bioTextP3 }) {
   const [textColor] = useState('');
   let elementRef = useRef();
-
-  useEffect(() => {
-    // console.log(elementRef.current.offsetTop);
-  }, []);
 
   return (
     <>
@@ -20,10 +16,10 @@ export default function Bio({ bioTextP1, bioTextP2 }) {
         textColor={textColor}
         flexDir={['column-reverse', 'column-reverse', 'row', 'row']}
         image={BioImage}
-        gradient={'linear(to-b, black, #2384AD)'}
         title={'-Bio-'}
         textp1={bioTextP1}
         textp2={bioTextP2}
+        textp3={bioTextP3}
       />
     </>
   );

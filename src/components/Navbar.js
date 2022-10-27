@@ -13,7 +13,7 @@ import {
   IconButton,
 } from '@chakra-ui/react';
 
-export default function NavBar({ sectionOffsets, toggleForm }) {
+export default function NavBar({ sectionOffsets, toggleForm, toggleLang }) {
   const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {
     const position = window.pageYOffset;
@@ -29,7 +29,6 @@ export default function NavBar({ sectionOffsets, toggleForm }) {
   }, []);
 
   const navBarHeight = 85;
-  // 85
 
   const linksArr = [
     {
@@ -191,7 +190,15 @@ export default function NavBar({ sectionOffsets, toggleForm }) {
               </Link>
             );
           })}
-          <Select
+          <Button
+            variant="outline"
+            border="none"
+            _hover={{ color: '#FFC380' }}
+            onClick={toggleLang('en')}
+          >
+            🇬🇧
+          </Button>
+          {/* <Select
             _focus={{ outline: 'none', boxShadow: 'none' }}
             width={'100px'}
             placeholder="🇳🇱"
@@ -200,7 +207,7 @@ export default function NavBar({ sectionOffsets, toggleForm }) {
             <option value="option1" border="none">
               🇬🇧
             </option>
-          </Select>
+          </Select> */}
 
           <Button
             colorScheme="blue"

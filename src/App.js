@@ -15,8 +15,8 @@ function App() {
   const API = process.env.REACT_APP_STRAPI_API_URL;
   const [texts, setTexts] = useState([]);
   const [form, setForm] = useState(false);
+  const [lang, setLang] = useState('nl');
 
-  //open close the form with different buttons
   const toggleForm = toggle => {
     setForm(toggle);
   };
@@ -39,10 +39,13 @@ function App() {
     agendaEnd: 0,
   });
 
-  const fetchText = () => {
+  //fetch nederlandse tekst
+  const fetchNlText = () => {
     Axios.get(`${API}/texts`)
       .then(texts => {
-        setTexts(texts.data.data[0].attributes);
+        if (lang === 'nl') {
+          setTexts(texts.data.data[0].attributes);
+        }
       })
       .catch(err => {
         console.log('Error getting texts from API', err);
@@ -50,8 +53,30 @@ function App() {
   };
 
   useEffect(() => {
-    fetchText();
+    fetchNlText();
   }, []);
+
+  //fetch engelse tekst
+  const fetchEnText = () => {
+    Axios.get(`${API}/engelse-texts`)
+      .then(texts => {
+        if (lang === 'en') {
+          setTexts(texts.data.data[0].attributes);
+          console.log(texts.data.data[0].attributes);
+        }
+      })
+      .catch(err => {
+        console.log('Error getting english texts from API', err);
+      });
+  };
+
+  useEffect(() => {
+    fetchEnText();
+  }, []);
+
+  const toggleLang = toggle => {
+    setLang(toggle);
+  };
 
   const bioRef = useRef();
   const lessonsRef = useRef();
@@ -104,13 +129,21 @@ function App() {
   return (
     <>
       {form && <Form toggleForm={toggleForm} />}
-      <NavBar sectionOffsets={sectionOffsets} toggleForm={toggleForm} />
+      <NavBar
+        sectionOffsets={sectionOffsets}
+        toggleForm={toggleForm}
+        toggleLang={toggleLang}
+      />
       <Header />
       <section ref={bioRef}>
-        <Bio bioTextP1={texts.biop1} bioTextP2={texts.biop2} />
+        <Bio
+          bioTextP1={texts.biop1}
+          bioTextP2={texts.biop2}
+          bioTextP3={texts.biop3}
+        />
       </section>
       <section ref={groepenRef}>
-        <Groepen />
+        <Groepen lang={lang} />
       </section>
       <section ref={agendaRef}>
         <Agenda />
