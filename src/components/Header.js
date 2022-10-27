@@ -1,6 +1,6 @@
 import { Box, Image, Flex } from '@chakra-ui/react';
 import React from 'react';
-import Cover from '../oldImages/Ies Muller Wooden Flute.jpeg';
+import Cover from '../oldImages/iesmuller-main-header_2500px.jpg';
 
 export default function Header() {
   return (

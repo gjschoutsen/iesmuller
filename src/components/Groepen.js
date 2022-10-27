@@ -12,7 +12,6 @@ export default function Groepen() {
   const fetchGroepenData = () => {
     Axios.get(`${API}/groepen?populate=*`)
       .then(groepInfo => {
-        console.log(groepInfo.data.data);
         setGroepenData(groepInfo.data.data);
       })
       .catch(err => {
